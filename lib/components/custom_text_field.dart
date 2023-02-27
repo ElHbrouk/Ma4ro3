@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-   CustomTextField({Key? key,required this.borderWidth,required this.width}) : super(key: key);
+   CustomTextField({Key? key,required this.borderWidth,required this.width,this.textController}) : super(key: key);
 double borderWidth;
 double width;
+TextEditingController? textController;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
       child: TextField(
-        keyboardType: TextInputType.phone,
+        controller: textController,
+        keyboardType: TextInputType.number,
         textAlign: TextAlign.center,
         cursorColor: Colors.black,
         decoration: InputDecoration(

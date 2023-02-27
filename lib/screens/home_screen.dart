@@ -2,12 +2,28 @@ import 'package:flutter/material.dart';
 import '../components/custom_button.dart';
 import '../components/custom_text_field.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  var individual = TextEditingController();
+
+  var totalCost = TextEditingController();
+
+  var noOfPeople = TextEditingController();
+
+  late int overPrice = 0;
+
+  late int moneyWanted = 0;
+
+  late int predictdeCost = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -20,202 +36,115 @@ class HomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(
+                        padding: EdgeInsetsDirectional.all(0),
                         onPressed: () {},
                         icon: const Icon(
                           Icons.menu,
                         ),
-                        iconSize: 36,
+                        iconSize: 40,
                       ),
-                      const Text(
-                        'مشروع',
-                        textAlign: TextAlign.end,
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Image.asset(
+                        'assets/images/mashro3.png',
+                        height: 30,
+                        width: 97,
                       ),
                     ],
                   ),
                   const SizedBox(
                     height: 30,
                   ),
-                  SizedBox(
-                    height: 100,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          children: [
-                            const Text(
-                              'أجره الفرد',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
+                  Column(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const Text(
+                            'أجره الفرد',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
                             ),
-                            const SizedBox(
-                              height: 10,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          CustomTextField(
+                            textController: individual,
+                            borderWidth: 1.5,
+                            width: 315,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const Text(
+                            'المبلغ اللي جمعته',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
                             ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 120,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          CustomTextField(
+                            textController: totalCost,
+                            borderWidth: 1.5,
+                            width: 315,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const Text(
+                            'عدد الاشخاص',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
                             ),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 15.0,
-                        ),
-                        Column(
-                          children: [
-                            const Text(
-                              'المبلغ اللي جمعته',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 120,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          CustomTextField(
+                            textController: noOfPeople,
+                            borderWidth: 1.5,
+                            width: 315,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                   const SizedBox(
-                    height: 20,
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Column(
-                          children: [
-                            const Text('عليه'),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 50,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 50,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 50,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Column(
-                          children: [
-                            const Text('له'),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 50,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 50,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 50,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Column(
-                          children: [
-                            const Text('المبلغ'),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 70,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 70,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 70,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Column(
-                          children: [
-                            const Text('كم شخص؟'),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 70,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 70,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            CustomTextField(
-                              borderWidth: 1.5,
-                              width: 70,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
                   CustomButton(
-                    onTap: () {},
+                    onTap: () {
+                      int totalCostInt = int.parse(totalCost.text);
+                       setState(() {
+                         predictdeCost = int.parse(individual.text) *
+                             int.parse(noOfPeople.text);
+                         if ( totalCostInt < predictdeCost) {
+                           overPrice = 0;
+                           moneyWanted = predictdeCost - totalCostInt;
+                         } else {
+                           overPrice = totalCostInt - predictdeCost;
+                           moneyWanted = 0;
+                         }
+                       });
+
+                    },
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -224,8 +153,8 @@ class HomeScreen extends StatelessWidget {
                           color: Colors.black,
                           width: 2,
                         )),
-                    width: 300,
-                    height: 120,
+                    width: 315,
+                    height: 123,
                     child: Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: Column(
@@ -233,40 +162,58 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
+                            children: [
                               Text(
-                                '0',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                '$predictdeCost',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
                               ),
                               Text(
                                 'المبلغ الكلي المتوقع',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
                               ),
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
+                            children: [
                               Text(
-                                '0',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                '$overPrice',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
                               ),
                               Text(
                                 'مبلغ زائد عن الحاجة',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
                               ),
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
+                            children: [
                               Text(
-                                '0',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                '$moneyWanted',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
                               ),
                               Text(
                                 'مبلغ بحاجة إليه',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
                               ),
                             ],
                           ),
@@ -283,3 +230,114 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+//SingleChildScrollView(
+//                     scrollDirection: Axis.horizontal,
+//                     child: Row(
+//                       mainAxisAlignment: MainAxisAlignment.start,
+//                       children: [
+//                         Column(
+//                           children: [
+//                             const Text('عليه'),
+//                             const SizedBox(
+//                               height: 10,
+//                             ),
+//                             CustomContainer(
+//                             ),
+//                             const SizedBox(
+//                               height: 10,
+//                             ),
+//                             CustomContainer(
+//
+//                             ),
+//                             const SizedBox(
+//                               height: 10,
+//                             ),
+//                             CustomContainer(
+//
+//                             ),
+//                           ],
+//                         ),
+//                         const SizedBox(
+//                           width: 10,
+//                         ),
+//                         Column(
+//                           children: [
+//                             const Text('له'),
+//                             const SizedBox(
+//                               height: 10,
+//                             ),
+//                             CustomContainer(),
+//                             const SizedBox(
+//                               height: 10,
+//                             ),
+//                             CustomContainer(),
+//                             const SizedBox(
+//                               height: 10,
+//                             ),
+//                             CustomContainer(),
+//                           ],
+//                         ),
+//                         const SizedBox(
+//                           width: 10,
+//                         ),
+//                         Column(
+//                           children: [
+//                             const Text('المبلغ'),
+//                             const SizedBox(
+//                               height: 10,
+//                             ),
+//                             CustomTextField(
+//                               borderWidth: 1.5,
+//                               width: 87.5,
+//                             ),
+//                             const SizedBox(
+//                               height: 10,
+//                             ),
+//                             CustomTextField(
+//                               borderWidth: 1.5,
+//                               width: 87.5,
+//                             ),
+//                             const SizedBox(
+//                               height: 10,
+//                             ),
+//                             CustomTextField(
+//                               borderWidth: 1.5,
+//                               width: 87.5,
+//                             ),
+//                           ],
+//                         ),
+//                         const SizedBox(
+//                           width: 10,
+//                         ),
+//                         Column(
+//                           children: [
+//                             const Text('كم شخص؟'),
+//                             const SizedBox(
+//                               height: 10,
+//                             ),
+//                             CustomTextField(
+//                               borderWidth: 1.5,
+//                               width: 87.5,
+//                             ),
+//                             const SizedBox(
+//                               height: 10,
+//                             ),
+//                             CustomTextField(
+//                               borderWidth: 1.5,
+//                               width: 87.5,
+//                             ),
+//                             const SizedBox(
+//                               height: 10,
+//                             ),
+//                             CustomTextField(
+//                               borderWidth: 1.5,
+//                               width: 87.5,
+//                             ),
+//                           ],
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                   const SizedBox(
+//                     height: 20,
+//                   ),

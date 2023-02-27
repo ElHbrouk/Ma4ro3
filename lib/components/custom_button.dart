@@ -8,21 +8,25 @@ Function()? onTap;
     return GestureDetector(
       onTap: onTap,
       child: Container(
-
-        width: 170,
-        height: 50,
+        padding: EdgeInsetsDirectional.only(
+          bottom: 7,
+        ),
+        width: 315,
+        height: 55,
         decoration: BoxDecoration(
           color: Colors.black,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: const Text(
-          'إحسب',
-        textAlign: TextAlign.center,
-        style: TextStyle(
+        child: Center(
+          child: const Text(
+            'إحسب',
+         // textAlign: TextAlign.center,
+          style: TextStyle(
 
-          color: Colors.white,
-          fontSize: 26,
-        ),
+            color: Colors.white,
+            fontSize: 26,
+          ),
+          ),
         ),
       ),
     );
