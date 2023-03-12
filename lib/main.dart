@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mashroa/screens/calculator_screen.dart';
 import 'package:mashroa/screens/home_screen.dart';
 
-void main() {
+void main() async{
   runApp(const MyApp());
 }
 

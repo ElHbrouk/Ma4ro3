@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-   CustomButton({Key? key,this.onTap}) : super(key: key);
-Function()? onTap;
+  CustomButton({Key? key,this.onTap}) : super(key: key);
+  Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -17,15 +17,15 @@ Function()? onTap;
           color: Colors.black,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Center(
-          child: const Text(
+        child: const Center(
+          child: Text(
             'إحسب',
-         // textAlign: TextAlign.center,
-          style: TextStyle(
+            // textAlign: TextAlign.center,
+            style: TextStyle(
 
-            color: Colors.white,
-            fontSize: 26,
-          ),
+              color: Colors.white,
+              fontSize: 26,
+            ),
           ),
         ),
       ),

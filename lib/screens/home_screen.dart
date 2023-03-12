@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mashroa/screens/calculator_screen.dart';
 import '../components/custom_button.dart';
 import '../components/custom_text_field.dart';
 
@@ -8,6 +9,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
   var individual = TextEditingController();
 
   var totalCost = TextEditingController();
@@ -23,7 +25,41 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      key: scaffoldKey,
+      drawer: Drawer(
+        child: Column(
+          children:  [
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.black87,
+                border: Border.all(
+                  color: Colors.white,
+                  width: 2,
+                )
+              ),
+              accountName: const Text(
+                'Omar Elhbrouk',
+                style: TextStyle(
+                  // color: Colors.black,
+                ),
+              ),
+              accountEmail: const Text(
+                'omar.elhbrouk@gmail.com',
+                style: TextStyle(
+                  // color: Colors.black,
+                ),
+              ),
+            ),
+             ListTile(
+              title: const Text('الحاسبة'),
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>CalculatorScreen(),),);
+              },
+            )
+          ],
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -34,8 +70,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      padding: EdgeInsetsDirectional.all(0),
-                      onPressed: () {},
+                      padding: const EdgeInsetsDirectional.all(0),
+                      onPressed: () {
+                        return scaffoldKey.currentState!.openDrawer();
+                      },
                       icon: const Icon(
                         Icons.menu,
                       ),
@@ -127,18 +165,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 CustomButton(
                   onTap: () {
                     int totalCostInt = int.parse(totalCost.text);
-                     setState(() {
-                       predictdeCost = int.parse(individual.text) *
-                           int.parse(noOfPeople.text);
-                       if ( totalCostInt < predictdeCost) {
-                         overPrice = 0;
-                         moneyWanted = predictdeCost - totalCostInt;
-                       } else {
-                         overPrice = totalCostInt - predictdeCost;
-                         moneyWanted = 0;
-                       }
-                     });
-
+                    setState(() {
+                      predictdeCost = int.parse(individual.text) *
+                          int.parse(noOfPeople.text);
+                      if (totalCostInt < predictdeCost) {
+                        overPrice = 0;
+                        moneyWanted = predictdeCost - totalCostInt;
+                      } else {
+                        overPrice = totalCostInt - predictdeCost;
+                        moneyWanted = 0;
+                      }
+                    });
                   },
                 ),
                 const SizedBox(
