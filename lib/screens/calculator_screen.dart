@@ -38,7 +38,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         result.toString().substring(1);
         finalResult = result;
       } else {
-        result = '-' + result;
+        result = '-$result';
         finalResult = result;
       }
     } else if (buttonValue == '%') {
@@ -67,14 +67,30 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      drawer:  Drawer(
+      drawer: Drawer(
         child: Column(
-          children:
-          [
-            UserAccountsDrawerHeader(accountName: Text(''), accountEmail: Text('')),
+          children: [
+            const UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.black87,
+              ),
+              accountName: Text(
+                'Omar Elhbrouk',
+              ),
+              accountEmail: Text(
+                'omar.elhbrouk2@gmail.com',
+              ),
+            ),
             ListTile(
-              title: Text('الصفحة الرئيسية'),
-              onTap: (){
+              leading: const Icon(Icons.home),
+              title: const Text(
+                'الصفحة الرئيسية',
+                style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 24,
+                ),
+              ),
+              onTap: () {
                 Navigator.pop(context);
                 Navigator.pop(context);
               },

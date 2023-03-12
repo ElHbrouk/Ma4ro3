@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mashroa/screens/calculator_screen.dart';
 import '../components/custom_button.dart';
 import '../components/custom_text_field.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -16,11 +17,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   var noOfPeople = TextEditingController();
 
-  late int overPrice = 0;
+  late double overPrice = 0;
 
-  late int moneyWanted = 0;
+  late double moneyWanted = 0;
 
-  late int predictdeCost = 0;
+  late double predictdeCost = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,33 +29,42 @@ class _HomeScreenState extends State<HomeScreen> {
       key: scaffoldKey,
       drawer: Drawer(
         child: Column(
-          children:  [
-            UserAccountsDrawerHeader(
+          children: [
+            const UserAccountsDrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.black87,
-                border: Border.all(
-                  color: Colors.white,
-                  width: 2,
-                )
+                  color: Colors.black87,
               ),
-              accountName: const Text(
+              accountName: Text(
                 'Omar Elhbrouk',
                 style: TextStyle(
-                  // color: Colors.black,
-                ),
+                    // color: Colors.black,
+                    ),
               ),
-              accountEmail: const Text(
+              accountEmail: Text(
                 'omar.elhbrouk@gmail.com',
                 style: TextStyle(
-                  // color: Colors.black,
-                ),
+                    // color: Colors.black,
+                    ),
               ),
             ),
-             ListTile(
-              title: const Text('الحاسبة'),
-              onTap: (){
+            ListTile(
+              leading: const Icon(Icons.calculate_outlined),
+              title: Text(
+                'الحاسبة',
+                style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 24.sp,
+                  // fontWeight: FontWeight.bold,
+                ),
+              ),
+              onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>CalculatorScreen(),),);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CalculatorScreen(),
+                  ),
+                );
               },
             )
           ],
@@ -62,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: EdgeInsets.all(25.0.sp),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -77,97 +87,97 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: const Icon(
                         Icons.menu,
                       ),
-                      iconSize: 40,
+                      iconSize: 40.sp,
                     ),
                     Image.asset(
                       'assets/images/mashro3.png',
-                      height: 30,
-                      width: 97,
+                      height: 30.h,
+                      width: 97.w,
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 30,
+                SizedBox(
+                  height: 30.h,
                 ),
                 Column(
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        const Text(
+                        Text(
                           'أجره الفرد',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 18.sp,
                           ),
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: 10.h,
                         ),
                         CustomTextField(
                           textController: individual,
-                          borderWidth: 1.5,
-                          width: 315,
+                          borderWidth: 1.5.w,
+                          width: 315.w,
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: 15.h,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        const Text(
+                        Text(
                           'المبلغ اللي جمعته',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 18.sp,
                           ),
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: 10.h,
                         ),
                         CustomTextField(
                           textController: totalCost,
-                          borderWidth: 1.5,
-                          width: 315,
+                          borderWidth: 1.5.w,
+                          width: 315.w,
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: 15.h,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        const Text(
+                        Text(
                           'عدد الاشخاص',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 18.sp,
                           ),
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: 10.h,
                         ),
                         CustomTextField(
                           textController: noOfPeople,
-                          borderWidth: 1.5,
-                          width: 315,
+                          borderWidth: 1.5.w,
+                          width: 315.w,
                         ),
                       ],
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 30,
+                SizedBox(
+                  height: 30.h,
                 ),
                 CustomButton(
                   onTap: () {
-                    int totalCostInt = int.parse(totalCost.text);
+                    double totalCostInt = double.parse(totalCost.text);
                     setState(() {
-                      predictdeCost = int.parse(individual.text) *
-                          int.parse(noOfPeople.text);
+                      predictdeCost = double.parse(individual.text) *
+                          double.parse(noOfPeople.text);
                       if (totalCostInt < predictdeCost) {
                         overPrice = 0;
                         moneyWanted = predictdeCost - totalCostInt;
@@ -178,20 +188,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     });
                   },
                 ),
-                const SizedBox(
-                  height: 30,
+                SizedBox(
+                  height: 30.h,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 2,
-                      )),
-                  width: 315,
-                  height: 123,
+                    borderRadius: BorderRadius.circular(15.sp),
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 2.w,
+                    ),
+                  ),
+                  width: 315.w,
+                  height: 123.h,
                   child: Padding(
-                    padding: const EdgeInsets.all(12.0),
+                    padding: EdgeInsets.all(12.0.sp),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -202,14 +213,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               '$predictdeCost',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 18.sp,
                               ),
                             ),
                             Text(
                               'المبلغ الكلي المتوقع',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 18.sp,
                               ),
                             ),
                           ],
@@ -221,14 +232,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               '$overPrice',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 18.sp,
                               ),
                             ),
                             Text(
                               'مبلغ زائد عن الحاجة',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 18.sp,
                               ),
                             ),
                           ],
@@ -240,14 +251,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               '$moneyWanted',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 18.sp,
                               ),
                             ),
                             Text(
                               'مبلغ بحاجة إليه',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                fontSize: 18.sp,
                               ),
                             ),
                           ],
