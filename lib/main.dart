@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mashroa/screens/calculator_screen.dart';
 import 'package:mashroa/screens/home_screen.dart';
 
-void main() async{
+void main() async {
   runApp(const MyApp());
 }
 
@@ -12,18 +12,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  ScreenUtilInit(
+    return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
-       return MaterialApp(
+        return MaterialApp(
           debugShowCheckedModeBanner: false,
           home: HomeScreen(),
         );
       },
-
     );
   }
 }
-

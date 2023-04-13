@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mashroa/screens/calculator_screen.dart';
+import 'package:mashroa/screens/sebha.dart';
 import '../components/custom_button.dart';
 import '../components/custom_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -28,46 +31,188 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       key: scaffoldKey,
       drawer: Drawer(
-        child: Column(
-          children: [
-            const UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                  color: Colors.black87,
+        width: 230.w,
+        backgroundColor: const Color(0xffD4ED26),
+        child: Padding(
+          padding: EdgeInsets.only(top: 50.0.sp),
+          child: Column(
+            children: [
+              Image.asset(
+                'assets/images/Vector.png',
+                height: 75.h,
+                width: 75.w,
               ),
-              accountName: Text(
-                'Omar Elhbrouk',
-                style: TextStyle(
-                    // color: Colors.black,
+              Container(
+                margin: EdgeInsets.only(top: 40.sp),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ListTile(
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        'حساب أجرة موحده',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
                     ),
-              ),
-              accountEmail: Text(
-                'omar.elhbrouk@gmail.com',
-                style: TextStyle(
-                    // color: Colors.black,
+                    ListTile(
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        'حساب أجرة مختلفة',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CalculatorScreen(),
+                          ),
+                        );
+                      },
                     ),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.calculate_outlined),
-              title: Text(
-                'الحاسبة',
-                style: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontSize: 24.sp,
-                  // fontWeight: FontWeight.bold,
+                    ListTile(
+                      leading: const Icon(Icons.calculate_outlined),
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        'الآلة الحاسبة',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CalculatorScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.pan_tool_sharp),
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        ' دعاء السفر',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CalculatorScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.front_hand),
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        'تسبيح',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Sebha(),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.gamepad),
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        ' X/O لعبة',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CalculatorScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.star),
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        'قيم التطبيق',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CalculatorScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.chat),
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        ' تواصل معنا',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CalculatorScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CalculatorScreen(),
-                  ),
-                );
-              },
-            )
-          ],
+            ],
+          ),
         ),
       ),
       body: SafeArea(
@@ -173,6 +318,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 30.h,
                 ),
                 CustomButton(
+                  width: 315,
+                  height: 55,
                   onTap: () {
                     double totalCostInt = double.parse(totalCost.text);
                     setState(() {

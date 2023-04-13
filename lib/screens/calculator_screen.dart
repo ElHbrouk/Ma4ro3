@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mashroa/screens/home_screen.dart';
+import 'package:mashroa/screens/sebha.dart';
 import '../components/custom_container.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CalculatorScreen extends StatefulWidget {
   const CalculatorScreen({Key? key}) : super(key: key);
@@ -68,39 +71,199 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     return Scaffold(
       key: scaffoldKey,
       drawer: Drawer(
-        child: Column(
-          children: [
-            const UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.black87,
+        width: 230.w,
+        backgroundColor: const Color(0xffD4ED26),
+        child: Padding(
+          padding: EdgeInsets.only(top: 50.0.sp),
+          child: Column(
+            children: [
+              Image.asset(
+                'assets/images/Vector.png',
+                height: 75.h,
+                width: 75.w,
               ),
-              accountName: Text(
-                'Omar Elhbrouk',
-              ),
-              accountEmail: Text(
-                'omar.elhbrouk2@gmail.com',
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text(
-                'الصفحة الرئيسية',
-                style: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontSize: 24,
+              Container(
+                margin: EdgeInsets.only(top: 40.sp),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ListTile(
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        'حساب أجرة موحده',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomeScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        'حساب أجرة مختلفة',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CalculatorScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.calculate_outlined),
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        'الآلة الحاسبة',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CalculatorScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.pan_tool_sharp),
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        ' دعاء السفر',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CalculatorScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.front_hand),
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        'تسبيح',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Sebha(),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.gamepad),
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        ' X/O لعبة',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CalculatorScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.star),
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        'قيم التطبيق',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CalculatorScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.chat),
+                      title: Text(
+                        textAlign: TextAlign.end,
+                        ' تواصل معنا',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CalculatorScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.pop(context);
-              },
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: EdgeInsets.all(20.0.sp),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -109,44 +272,44 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      padding: const EdgeInsetsDirectional.all(0),
+                      padding: EdgeInsetsDirectional.all(0.sp),
                       onPressed: () {
                         scaffoldKey.currentState!.openDrawer();
                       },
                       icon: const Icon(
                         Icons.menu,
                       ),
-                      iconSize: 40,
+                      iconSize: 40.sp,
                     ),
                     Image.asset(
                       'assets/images/mashro3.png',
-                      height: 30,
-                      width: 97,
+                      height: 30.h,
+                      width: 97.w,
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 60,
+                SizedBox(
+                  height: 10.h,
                 ),
-                const Text(
+                Text(
                   'الحاسبة',
                   style: TextStyle(
                     fontFamily: 'Montserrat',
-                    fontSize: 32,
+                    fontSize: 32.sp,
                   ),
                 ),
-                const SizedBox(
-                  height: 50,
+                SizedBox(
+                  height: 10.h,
                 ),
                 CustomContainer(
                   color: Colors.white,
-                  width: 300,
-                  height: 165,
+                  width: 300.w,
+                  height: 165.h,
                   combineText: finalResult,
                   resultText: result,
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: 15.h,
                 ),
                 Column(
                   children: [
@@ -160,14 +323,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             });
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: Colors.white,
                             text: 'C',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -176,14 +339,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             });
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: Colors.white,
                             text: 'Del',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -192,14 +355,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             });
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: Colors.white,
                             text: '%',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -208,16 +371,16 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             });
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: Colors.white,
                             text: '/',
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 5,
+                    SizedBox(
+                      height: 5.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -229,58 +392,58 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             });
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: const Color(0xffD4ED26),
                             text: '7',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
                             buttonPressed('8');
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: const Color(0xffD4ED26),
                             text: '8',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
                             buttonPressed('9');
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: const Color(0xffD4ED26),
                             text: '9',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
                             buttonPressed('X');
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: Colors.white,
                             text: 'X',
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 5,
+                    SizedBox(
+                      height: 5.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -290,58 +453,58 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             buttonPressed('4');
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: const Color(0xffD4ED26),
                             text: '4',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
                             buttonPressed('5');
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: const Color(0xffD4ED26),
                             text: '5',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
                             buttonPressed('6');
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: const Color(0xffD4ED26),
                             text: '6',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
                             buttonPressed('+');
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: Colors.white,
                             text: '+',
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 5,
+                    SizedBox(
+                      height: 5.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -351,58 +514,58 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             buttonPressed('1');
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: const Color(0xffD4ED26),
                             text: '1',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
                             buttonPressed('2');
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: const Color(0xffD4ED26),
                             text: '2',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
                             buttonPressed('3');
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: const Color(0xffD4ED26),
                             text: '3',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
                             buttonPressed('-');
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: Colors.white,
                             text: '-',
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 5,
+                    SizedBox(
+                      height: 5.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -412,36 +575,36 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             buttonPressed('0');
                           },
                           child: CustomButton(
-                            width: 147.5,
-                            height: 71.25,
+                            width: 147.5.w,
+                            height: 71.25.h,
                             color: const Color(0xffD4ED26),
                             text: '0',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
                             buttonPressed('.');
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: const Color(0xffD4ED26),
                             text: '.',
                           ),
                         ),
-                        const SizedBox(
-                          width: 5,
+                        SizedBox(
+                          width: 5.w,
                         ),
                         GestureDetector(
                           onTap: () {
                             buttonPressed('=');
                           },
                           child: CustomButton(
-                            width: 71.25,
-                            height: 71.25,
+                            width: 71.25.w,
+                            height: 71.25.h,
                             color: Colors.black,
                             text: '=',
                             textColor: Colors.white,
