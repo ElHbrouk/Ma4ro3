@@ -33,7 +33,7 @@ jobs:
         
       
       - name: Auto Versioning
-        uses: Soumeh-zz/Auto-Versioning@v2
+        uses: Soumeh-zz/Auto-Versioning@main
         with:
           # GitHub Personal Access Token. Auto Populated.
           token: ${{ github.token }}
