@@ -38,4 +38,4 @@ jobs:
           automatic_release_tag: "latest"
           prerelease: false
           title: " Latest Release."
-          files: build/app/outputs/apk/release/
+          files: build/app/outputs/apk/release/*.apk
