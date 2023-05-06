@@ -30,22 +30,25 @@ jobs:
       # Builds APKs for each abi 
       - name: Build APKs for each abi
         run: flutter build apk --split-per-abi 
+        
+      
+      - name: Auto Versioning
+        uses: Soumeh-zz/Auto-Versioning@v2.0
+        with:
+          # GitHub Personal Access Token. Auto Populated.
+          token: ${{ github.token }}
+          # List of commits to determine the new version with. (Auto Populated)
+          commits: ${{ toJSON(github.event.commits) }}
+          # The repository to scan for the latest version in. (Auto Populated)
+          repo: ${{ github.repository }}
+          # What changes make which part of the version increase. (Explained further in README.MD)
+          separator: .
 
-      # - uses: actions/upload-artifact@v1
-      #  with:
-      #    name: release-apk
-      #    path: build/app/outputs/apk/release/app-release.apk
-
-      #- name: Upload To Guthub Releases
-      #  uses: fnkr/github-action-ghr@v1
-      #  env:
-      #    GHR_PATH: build/app/outputs/apk/release/
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
- 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - name : Creating New Realease
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: false
-          title: "NEW Apk is just out !!! "
+          title: "Version ${{ steps.versioning.outputs.tag }}."
           files: build/app/outputs/apk/release/
