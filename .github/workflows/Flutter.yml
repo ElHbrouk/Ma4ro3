@@ -17,15 +17,27 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'beta'
 
-      # Note: This workflow uses the latest stable version of the Dart SDK.
-      # You can specify other versions if desired.
-      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
 
       - name: Install dependencies
         run: flutter pub get
 
+      - run: flutter format --set-exit-if-changed
+      - run: flutter analyze
 
       # Builds APKs for each abi 
       - name: Install dependencies
         run: flutter build apk --split-per-abi 
+
+      # - uses: actions/upload-artifact@v1
+      #  with:
+      #    name: release-apk
+      #    path: build/app/outputs/apk/release/app-release.apk
+       
+ 
