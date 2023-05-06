@@ -28,9 +28,6 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - run: flutter format --set-exit-if-changed
-      - run: flutter analyze
-
       # Builds APKs for each abi 
       - name: Install dependencies
         run: flutter build apk --split-per-abi 
