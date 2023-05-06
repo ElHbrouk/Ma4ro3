@@ -29,12 +29,17 @@ jobs:
         run: flutter pub get
 
       # Builds APKs for each abi 
-      - name: Install dependencies
+      - name: Build APKs for each abi
         run: flutter build apk --split-per-abi 
 
       # - uses: actions/upload-artifact@v1
       #  with:
       #    name: release-apk
       #    path: build/app/outputs/apk/release/app-release.apk
-       
+
+      - name: Upload To Guthub Releases
+        uses: fnkr/github-action-ghr@v1
+        env:
+          GHR_PATH: build/app/outputs/apk/release/
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
