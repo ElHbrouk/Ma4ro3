@@ -37,9 +37,16 @@ jobs:
       #    name: release-apk
       #    path: build/app/outputs/apk/release/app-release.apk
 
-      - name: Upload To Guthub Releases
-        uses: fnkr/github-action-ghr@v1
-        env:
-          GHR_PATH: build/app/outputs/apk/release/
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #- name: Upload To Guthub Releases
+      #  uses: fnkr/github-action-ghr@v1
+      #  env:
+      #    GHR_PATH: build/app/outputs/apk/release/
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          title: "NEW Apk is just out !!! "
+          files: build/app/outputs/apk/release/
