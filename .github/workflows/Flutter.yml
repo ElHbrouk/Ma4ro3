@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Dart
+name: Flutter Build 
 
 on:
   push:
@@ -30,19 +30,6 @@ jobs:
       # Builds APKs for each abi 
       - name: Build APKs for each abi
         run: flutter build apk --split-per-abi 
-        
-      
-      - name: Auto Versioning
-        uses: Soumeh-zz/Auto-Versioning@main
-        with:
-          # GitHub Personal Access Token. Auto Populated.
-          token: ${{ github.token }}
-          # List of commits to determine the new version with. (Auto Populated)
-          commits: ${{ toJSON(github.event.commits) }}
-          # The repository to scan for the latest version in. (Auto Populated)
-          repo: ${{ github.repository }}
-          # What changes make which part of the version increase. (Explained further in README.MD)
-          separator: .
 
       - name : Creating New Realease
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -50,5 +37,5 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: false
-          title: "Version ${{ steps.versioning.outputs.tag }}."
+          title: " Latest Release."
           files: build/app/outputs/apk/release/
