@@ -1,38 +1,44 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField({Key? key,required this.borderWidth,required this.width,this.textController}) : super(key: key);
-  double borderWidth;
-  double width;
-  TextEditingController? textController;
+  const CustomTextField({
+    super.key,
+    required this.borderWidth,
+    this.textController,
+    this.validator,
+  });
+  final double borderWidth;
+  final String? Function(String?)? validator;
+  final TextEditingController? textController;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      child: TextField(
-        controller: textController,
-        keyboardType: TextInputType.number,
-        textAlign: TextAlign.center,
-        cursorColor: Colors.black,
-        decoration: InputDecoration(
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide:  BorderSide(
-                color: Colors.black,
-                width: borderWidth,
-              )),
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide:  BorderSide(
-                color: Colors.black,
-                width: borderWidth,
-              )),
-          border: OutlineInputBorder(
+    return TextFormField(
+      validator: validator,
+      controller: textController,
+      onTapOutside: (event) {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      keyboardType: TextInputType.number,
+      textAlign: TextAlign.center,
+      cursorColor: Colors.black,
+      decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide:  BorderSide(
+            borderSide: BorderSide(
               color: Colors.black,
-              width:borderWidth,
-            ),
+              width: borderWidth,
+            )),
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(
+              color: Colors.black,
+              width: borderWidth,
+            )),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(
+            color: Colors.black,
+            width: borderWidth,
           ),
         ),
       ),
