@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mashroa/core/utils/size_config.dart';
+import '../utils/size_config.dart';
 
 class AdaptiveLayout extends StatelessWidget {
   const AdaptiveLayout({
-    Key? key,
+    super.key,
     required this.mobileLayout,
     required this.tabletLayout,
     required this.desktopLayout,
-  }) : super(key: key);
+  });
   final WidgetBuilder mobileLayout, tabletLayout, desktopLayout;
   @override
   Widget build(BuildContext context) {
