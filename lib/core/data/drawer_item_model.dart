@@ -1,6 +1,6 @@
 class DrawerItemModel {
   final String title;
-  final String image;
+  final String? image;
   final String route;
 
   const DrawerItemModel({
