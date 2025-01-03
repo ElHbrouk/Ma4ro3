@@ -3,12 +3,11 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Flutter Build 
+name: Flutter Build
 
 on:
   push:
     branches: [ "main" ]
-
 
 jobs:
   build:
@@ -22,7 +21,11 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: 'beta'
-
+      
+      - name: Setup Dart SDK
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: '3.6.0'
 
       - name: Install dependencies
         run: flutter pub get
@@ -31,11 +34,11 @@ jobs:
       - name: Build APKs for each abi
         run: flutter build apk --split-per-abi 
 
-      - name : Creating New Realease
-        uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Creating New Release
+        uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: false
-          title: " Latest Release."
+          title: "Latest Release."
           files: build/app/outputs/apk/release/*.apk
