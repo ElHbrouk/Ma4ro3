@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mashroa/core/utils/size_config.dart';
+import '../utils/size_config.dart';
 
 double getResonsiveFont(BuildContext context, {required double fontSize}) {
   double fontFactor = getFontFactor(context);
   double resonsiveFont = fontFactor * fontSize;
-  double lowerLimit = fontSize * 0.8;
+  double lowerLimit = fontSize * 0.9;
   double upperLimit = fontSize * 1.2;
   return resonsiveFont.clamp(lowerLimit, upperLimit);
 }
