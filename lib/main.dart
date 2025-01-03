@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mashroa/core/utils/app_routes.dart';
+
+import 'core/utils/app_routes.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -10,8 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      title: 'مشروع',
+      locale: const Locale('ar'),
       routerConfig: AppRoutes.router,
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, 
     );
   }
 }
