@@ -1,5 +1,5 @@
 default_platform(:android)
-
+update_fastlane
 platform :android do
   desc "Lane for distributing the app to Firebase App Distribution"
   lane :firebase_distribute do

@@ -12,10 +12,10 @@ jobs:
     - name: Checkout my repo code
       uses: actions/checkout@v2
     
-    - name: Set up JDK 17
+    - name: Set up JDK 21
       uses: actions/setup-java@v2
       with:
-        java-version: '17'
+        java-version: '21'
         distribution: 'temurin'
     
     - name: Install Flutter
@@ -26,21 +26,14 @@ jobs:
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: "3.4.0"
+        ruby-version: "3.4.1"
         bundler-cache: true
         working-directory: android
-
-    - name: Setup fastlane
-      run: |
-        cd android
-        gem install bundler
-        bundle config path vendor/bundle
-        bundle install --jobs 4 --retry 3
         
     - name: Build and Distribute App
       env:
         FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
       run: |
-        bundle exec fastlane firebase_distribution
+        bundle exec fastlane android firebase_distribution
       working-directory: android
 
