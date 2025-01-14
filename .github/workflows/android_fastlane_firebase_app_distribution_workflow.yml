@@ -2,6 +2,7 @@ name: Android Fastlane with Firebase App Distribution Workflow
 
 on:
   push:
+  pull_request:
     branches:
       - main
 
@@ -30,12 +31,16 @@ jobs:
         bundler-cache: true
         working-directory: android
         
+    - name: Install Fastlane
+      run: |
+        gem install bundler
+        gem install fastlane
+      working-directory: android    
+
     - name: Build and Distribute App
       env:
         FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
       run: |
-        gem install bundler
-        gem install fastlane
         bundle exec fastlane firebase_distribution
       working-directory: android
 
