@@ -8,13 +8,14 @@ platform :android do
   desc "Lane for Android Firebase App Distribution"
   lane :firebase_distribution do
     sh "flutter clean"
-    sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
+    #* "--no-tree-shake-icons" you can add this flag if you want to disable tree shaking for icons
+    sh "flutter build apk --release --flavor production --target lib/main_production.dart" 
     firebase_app_distribution(
-        app: "1:452504670855:android:0d65f241ab1bf9d8411e22",
+        app: ENV["FIREBASE_APP_ID"],
         firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
         android_artifact_type: "APK",
         android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
-        testers: "omar.elhbrouk2@gmail.com ,Rockhussein@gmail.com ,abdo.elhbrouk@gmail.com , elsherif.osama155@gmail.com",
+        groups: "general testers",
         release_notes: "Final touch for fastlane with GitHub Actions."
   )
   end
