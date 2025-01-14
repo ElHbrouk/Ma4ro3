@@ -26,9 +26,14 @@ jobs:
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: "3.4.1"
+        ruby-version: "3.4.0"
         bundler-cache: true
         working-directory: android
+
+    - name: Setup fastlane
+      run: |
+        gem install bundler
+        bundle install
         
     - name: Build and Distribute App
       env:
