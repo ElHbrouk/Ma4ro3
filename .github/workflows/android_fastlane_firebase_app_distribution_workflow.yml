@@ -37,6 +37,6 @@ jobs:
         gem "fastlane"
         bundle install
         bundle update
-        bundle exec fastlane firebase_distribution
+        bundle exec fastlane firebase_distribute
       working-directory: android
 
