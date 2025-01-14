@@ -8,7 +8,7 @@ platform :android do
   desc "Lane for Android Firebase App Distribution"
   lane :firebase_distribution do
     sh "flutter clean"
-    #* "--no-tree-shake-icons" you can add this flag if you want to disable tree shaking for icons
+    # "--no-tree-shake-icons" you can add this flag if you want to disable tree shaking for icons
     sh "flutter build apk --release --flavor production --target lib/main_production.dart" 
     firebase_app_distribution(
         app: ENV["FIREBASE_APP_ID"],
