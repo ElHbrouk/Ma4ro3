@@ -62,7 +62,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 1.  Open your terminal or command prompt.
 2.  Navigate to the directory where you want to store the project.
-3.  Clone the repository using Git (replace `[your-repository-url]` with the actual URL of your repository):
+3.  Clone the repository using Git (replace `https://github.com/ElHbrouk/Ma4ro3.git` with the actual URL of your repository):
 
     ```bash
     git clone https://github.com/ElHbrouk/Ma4ro3.git
